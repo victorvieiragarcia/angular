@@ -1,0 +1,76 @@
+.new-cooperator-admission {
+    width: 100%;
+
+    &-region-stapbar {
+        height: 111px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-region-form {
+        margin-left: 24px;
+
+        h2 {
+            margin: 0;
+            font-family: Open Sans;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 29.96px;
+            color: #101213;
+        }
+
+        span {
+            display: flex;
+            width: 460px;
+            font-family: Open Sans;
+            font-weight: 400;
+            font-size: 11px;
+            line-height: 14.98px;
+            color: #4F575E;
+        }
+
+        .label {
+            display: block;
+            font-family: Open Sans;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 19.07px;
+            color: #040F14;
+        }
+
+        .input {
+            width: 270px;
+            height: 34px;
+            border-radius: 2px;
+            border-width: 1px;
+            border: 1px solid #889499;
+            margin-right: 16px;
+
+            &-invalid-cpf {
+                border: 1px solid #C13018;
+            }
+        }
+
+        .invalid-cpf {
+            font-family: Open Sans;
+            font-weight: 400;
+            font-size: 10px;
+            line-height: 13.62px;
+            color: #C13018;
+            margin-top: 2px;
+        }
+    }
+
+    &-region-card {
+        margin-top: 24px;
+        margin-left: 24px;
+    }
+
+    .div-footer {
+        display: flex;
+        margin-left: 24px;
+        gap: 16px;
+    }
+
+}

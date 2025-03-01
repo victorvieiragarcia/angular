@@ -1,0 +1,14 @@
+.content {
+    margin-left: 92px;
+    margin-top: 90px;
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@media only screen and (max-height: 768px) {
+    .content {
+        max-height: 73vh;
+    }
+
+}

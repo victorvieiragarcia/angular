@@ -1,0 +1,9 @@
+<button *ngIf="!isLoading" class="generic-button generic-button-inline" [ngClass]="{'generic-button-outline': !inline,
+    'generic-button-disabled-btn': isDisbled
+}" (click)="onClickEmitter.emit()" [disabled]="isDisbled">
+    {{textBtn}}
+</button>
+
+<button *ngIf="isLoading" class="generic-button generic-button-inline" style="width: 158px;" [ngClass]="{'generic-button-outline': !inline}">
+    <div class="loader"></div>
+</button>

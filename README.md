@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## TypeScript versão
+
+^4.8.4
+
+## Node versão
+
+v20.11.0
+
+## CPF para busca de dados mockados
+
+'388.387.945-29', '015.512.198-75'
