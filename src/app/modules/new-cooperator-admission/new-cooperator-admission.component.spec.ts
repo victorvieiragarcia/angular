@@ -3,7 +3,8 @@ import { NewCooperatorAdmissionComponent } from './new-cooperator-admission.comp
 import { NewCooperatorAdmissionService } from 'src/app/services/new-cooperator-admission.service';
 import { of } from 'rxjs';
 import { FormsModule } from '@angular/forms';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NewCooperatorAdmissionComponent', () => {
   let component: NewCooperatorAdmissionComponent;
@@ -15,10 +16,10 @@ describe('NewCooperatorAdmissionComponent', () => {
     serviceMock.get.and.returnValue(of({ name: 'Test User', cpf: '12345678909', situation: true, account: [] }));
 
     await TestBed.configureTestingModule({
-      declarations: [NewCooperatorAdmissionComponent],
-      providers: [{ provide: NewCooperatorAdmissionService, useValue: serviceMock }],
-      imports: [FormsModule, HttpClientTestingModule]
-    }).compileComponents();
+    declarations: [NewCooperatorAdmissionComponent],
+    imports: [FormsModule],
+    providers: [{ provide: NewCooperatorAdmissionService, useValue: serviceMock }, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+}).compileComponents();
   });
 
   beforeEach(() => {
