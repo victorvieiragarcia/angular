@@ -7,8 +7,7 @@ import { AccountType, NewCooperatorAdmission } from 'src/app/models/new-cooperat
     templateUrl: './card.component.html',
     styleUrls: ['./card.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    host: { style: 'display: flex; gap:16px' },
-    standalone: false
+    host: { style: 'display: flex; gap:16px' }
 })
 export class CardComponent {
   @Input() paramCard: NewCooperatorAdmission = {

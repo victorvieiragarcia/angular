@@ -9,17 +9,15 @@ import { FooterModule } from 'src/app/footer/footer.module';
 
 
 @NgModule({
-  declarations: [
-    NewCooperatorAdmissionComponent,
-    StepperBarComponent,
-    CardComponent
-  ],
-  imports: [
-    CommonModule,
-    GenericButtonModule,
-    FormsModule,
-    FooterModule
-  ],
-  exports:[NewCooperatorAdmissionComponent]
+    imports: [
+        CommonModule,
+        GenericButtonModule,
+        FormsModule,
+        FooterModule,
+        NewCooperatorAdmissionComponent,
+        StepperBarComponent,
+        CardComponent
+    ],
+    exports: [NewCooperatorAdmissionComponent]
 })
 export class NewCooperatorAdmissionModule { }

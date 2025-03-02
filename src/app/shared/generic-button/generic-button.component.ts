@@ -1,10 +1,11 @@
 import { booleanAttribute, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgIf, NgClass } from '@angular/common';
 
 @Component({
     selector: 'app-generic-button',
     templateUrl: './generic-button.component.html',
     styleUrls: ['./generic-button.component.scss'],
-    standalone: false
+    imports: [NgIf, NgClass]
 })
 export class GenericButtonComponent implements OnInit {
 

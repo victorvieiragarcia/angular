@@ -5,12 +5,10 @@ import { FooterComponent } from './footer.component';
 
 
 @NgModule({
-  declarations: [
-    FooterComponent
-  ],
-  imports: [
-    CommonModule
-  ], 
-  exports:[FooterComponent]
+    imports: [
+        CommonModule,
+        FooterComponent
+    ],
+    exports: [FooterComponent]
 })
 export class FooterModule { }

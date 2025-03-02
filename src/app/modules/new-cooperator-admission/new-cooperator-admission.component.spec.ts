@@ -16,8 +16,7 @@ describe('NewCooperatorAdmissionComponent', () => {
     serviceMock.get.and.returnValue(of({ name: 'Test User', cpf: '12345678909', situation: true, account: [] }));
 
     await TestBed.configureTestingModule({
-    declarations: [NewCooperatorAdmissionComponent],
-    imports: [FormsModule],
+    imports: [FormsModule, NewCooperatorAdmissionComponent],
     providers: [{ provide: NewCooperatorAdmissionService, useValue: serviceMock }, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 }).compileComponents();
   });

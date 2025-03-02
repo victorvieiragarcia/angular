@@ -5,12 +5,10 @@ import { ToolbarComponent } from './toolbar.component';
 
 
 @NgModule({
-  declarations: [
-    ToolbarComponent
-  ],
-  imports: [
-    CommonModule
-  ], 
-  exports: [ToolbarComponent]
+    imports: [
+        CommonModule,
+        ToolbarComponent
+    ],
+    exports: [ToolbarComponent]
 })
 export class ToolbarModule { }

@@ -1,6 +1,12 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NewCooperatorAdmission } from 'src/app/models/new-cooperator-admission';
 import { NewCooperatorAdmissionService } from 'src/app/services/new-cooperator-admission.service';
+import { StepperBarComponent } from './components/stepper-bar/stepper-bar.component';
+import { FormsModule } from '@angular/forms';
+import { NgClass, NgIf } from '@angular/common';
+import { GenericButtonComponent } from '../../shared/generic-button/generic-button.component';
+import { CardComponent } from './components/card/card.component';
+import { FooterComponent } from '../../footer/footer.component';
 
 @Component({
     selector: 'app-new-cooperator-admission',
@@ -8,7 +14,7 @@ import { NewCooperatorAdmissionService } from 'src/app/services/new-cooperator-a
     styleUrls: ['./new-cooperator-admission.component.scss'],
     encapsulation: ViewEncapsulation.None,
     host: { class: 'new-cooperator-admission' },
-    standalone: false
+    imports: [StepperBarComponent, FormsModule, NgClass, GenericButtonComponent, NgIf, CardComponent, FooterComponent]
 })
 export class NewCooperatorAdmissionComponent {
   isValidCPF: boolean = true;
