@@ -8,7 +8,6 @@ import { CardComponent } from './components/card/card.component';
 import { FooterModule } from 'src/app/footer/footer.module';
 
 
-
 @NgModule({
   declarations: [
     NewCooperatorAdmissionComponent,
@@ -20,6 +19,7 @@ import { FooterModule } from 'src/app/footer/footer.module';
     GenericButtonModule,
     FormsModule,
     FooterModule
-  ],exports:[NewCooperatorAdmissionComponent]
+  ],
+  exports:[NewCooperatorAdmissionComponent]
 })
 export class NewCooperatorAdmissionModule { }

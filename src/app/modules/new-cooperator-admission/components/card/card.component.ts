@@ -3,11 +3,12 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { AccountType, NewCooperatorAdmission } from 'src/app/models/new-cooperator-admission';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  host: { style: 'display: flex; gap:16px' }
+    selector: 'app-card',
+    templateUrl: './card.component.html',
+    styleUrls: ['./card.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    host: { style: 'display: flex; gap:16px' },
+    standalone: false
 })
 export class CardComponent {
   @Input() paramCard: NewCooperatorAdmission = {

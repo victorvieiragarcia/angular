@@ -13,20 +13,24 @@
     </div>
 
     <div class="card-group">
-        <span *ngIf="paramCard?.situation" class="material-icons-outlined icon icon-succes" >check_circle</span>
-        <span *ngIf="!paramCard?.situation" class="material-icons-outlined icon icon-danger" >
-            cancel
-        </span>
+        @if (paramCard.situation) {
+        <span class="material-icons-outlined icon icon-succes">check_circle</span>
+        }@else {
+        <span class="material-icons-outlined icon icon-danger">cancel</span>
+        }
         <div class="group-text">
             <p class="card-text-p">Situação do CPF</p>
-            <span  *ngIf="paramCard?.situation" class="card-text-span">Regular</span>
-            <span *ngIf="!paramCard?.situation" class="card-text-span">Pendente</span>
+            @if (paramCard.situation) {
+            <span class="card-text-span">Regular</span>
+            }@else {
+            <span class="card-text-span">Pendente</span>
+            }
         </div>
     </div>
 </div>
 
-
-<div class="card" *ngFor="let item of paramCard?.account">
+@for (item of paramCard.account; track $index) {
+<div class="card">
     <div class="card-group-title">
         <h3>Conta {{ item?.accountType}}</h3>
         <p class="card-text-p">Cooperativa Viacredi</p>
@@ -46,3 +50,4 @@
         <span class="text-action"> Duplicar conta</span>
     </div>
 </div>
+}

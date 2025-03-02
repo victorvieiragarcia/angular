@@ -14,19 +14,24 @@
                     name="cpf" (keypress)="maskCPF($event.target)" type="text" title="000.000.000-00"
                     placeholder="000.000.000-00">
                 <app-generic-button textBtn="Consultar por CPF" [inline]="false" [isLoading]="isLoading"
-                    (onClickEmitter)="searchCPF()" [isDisbled]="this.cpf.length < 14"></app-generic-button>
+                    (onClickEmitter)="searchCPF()" [disabled]="this.cpf.length < 14"></app-generic-button>
             </div>
-            <p *ngIf="!isValidCPF" class="invalid-cpf">Informe um CPF válido</p>
+            @if (!isValidCPF) {<p *ngIf="" class="invalid-cpf">Informe um CPF válido</p>}
         </div>
     </div>
 
-    <div *ngIf="person" class="new-cooperator-admission-region-card">
+    @if (person) {
+    <div class="new-cooperator-admission-region-card">
         <app-card [paramCard]="person"></app-card>
     </div>
+    }
 
     <app-footer>
         <div class="div-footer">
-            <app-generic-button *ngIf="person" textBtn="Iniciar nova admissão" [inline]="false"></app-generic-button>
+            @if (person) {
+            <app-generic-button textBtn="Iniciar nova admissão" [inline]="false"></app-generic-button>
+            }
+
             <app-generic-button textBtn="Dicas para admissão"></app-generic-button>
         </div>
     </app-footer>

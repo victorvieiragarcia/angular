@@ -3,11 +3,12 @@ import { NewCooperatorAdmission } from 'src/app/models/new-cooperator-admission'
 import { NewCooperatorAdmissionService } from 'src/app/services/new-cooperator-admission.service';
 
 @Component({
-  selector: 'app-new-cooperator-admission',
-  templateUrl: './new-cooperator-admission.component.html',
-  styleUrls: ['./new-cooperator-admission.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  host: { class: 'new-cooperator-admission' }
+    selector: 'app-new-cooperator-admission',
+    templateUrl: './new-cooperator-admission.component.html',
+    styleUrls: ['./new-cooperator-admission.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    host: { class: 'new-cooperator-admission' },
+    standalone: false
 })
 export class NewCooperatorAdmissionComponent {
   isValidCPF: boolean = true;
