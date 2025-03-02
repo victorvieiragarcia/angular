@@ -10,8 +10,8 @@ import { NgIf, NgClass } from '@angular/common';
 export class GenericButtonComponent implements OnInit {
 
   @Input() textBtn: string = '';
-  @Input() inline: boolean = true;
-  @Input({transform: booleanAttribute}) disabled: boolean = false;
+  @Input({transform: booleanAttribute}) inline: boolean = true;
+  @Input() disabled: boolean = false;
   @Input() isLoading: boolean = false;
 
   @Output() onClickEmitter = new EventEmitter();
