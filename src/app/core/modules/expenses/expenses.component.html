@@ -6,19 +6,36 @@
     </ol>
 </nav>
 
-<div class="row g-sm-3">
+<div class="col-lg-6 col-md-12 col-sm-12">
+    <div class="card">
+        <div class="card-body">
+            <label for="date" class="form-label"><b>Data despesas</b></label>
+            <div class="row g-3">
+                <div class="col-auto">
+                    <input class="form-control" [(ngModel)]="dateExpenses" type="month" id="date">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary" (click)="getExpensesDate()">Buscar despesas</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mt-3">
     <div class="col-md-6 col-sm-12">
-        <app-table-accounts-payable />
+        <app-table-accounts-payable [accountPayable]="expense.accountsPayable" />
     </div>
 
     <div class="col-md-4 col-sm-6">
-        <app-table-accounts-receivable />
+        <app-table-accounts-receivable [receivable]="expense.receivable" />
     </div>
 
     <div class="col-md-2 col-sm-6">
         <div class="card">
             <div class="card-body">
-                <h5>Contas a pagar</h5>
+                <h5>Totais</h5>
                 <table class="table">
                     <thead class="table-dark">
                         <tr>
@@ -27,15 +44,17 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Total a pagar 2000</td>
+                            <td><b>Pagar: </b><span>{{totals.totalPayable| currency: 'BRL'}}</span></td>
                         </tr>
                         <tr>
-                            <td>Total e receber 2400</td>
+                            <td><b>Receber: </b><span>{{totals.totalReceivable | currency: 'BRL'}}</span></td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td>Total: 200</td>
+                            <td><b>Total: </b> <span
+                                    [ngStyle]="{'color': totals.total < 0 ? 'red' : 'green'}">{{totals.total | currency:
+                                    'BRL'}}</span></td>
                         </tr>
                     </tfoot>
                 </table>

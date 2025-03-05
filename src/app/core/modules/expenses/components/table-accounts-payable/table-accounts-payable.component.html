@@ -11,34 +11,18 @@
                     <th scope="col">Status</th>
                 </tr>
             </thead>
+
             <tbody>
+                @for (item of accountPayable; track $index) {
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Carro</td>
-                    <td>2400</td>
-                    <td>20/02/2050</td>
-                    <td>true</td>
+                    <th scope="row">{{item.id}}</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.value | currency: 'BRL'}}</td>
+                    <td>{{item.date | date:"dd/MM/yyyy"}}</td>
+                    <td>{{item.status}}</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Carro</td>
-                    <td>2400</td>
-                    <td>20/02/2050</td>
-                    <td>true</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Carro</td>
-                    <td>2400</td>
-                    <td>20/02/2050</td>
-                    <td>true</td>
-                </tr>
+                }
             </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="5">foot</td>
-                </tr>
-            </tfoot>
         </table>
     </div>
 </div>

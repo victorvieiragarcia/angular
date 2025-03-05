@@ -4,6 +4,7 @@ import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { AppRoutingModule, routes } from './app/app-routing.module';
 import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 
 if (environment.production) {
   enableProdMode();
@@ -11,7 +12,8 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
     providers: [importProvidersFrom(BrowserModule, AppRoutingModule),
-      provideRouter(routes)
+      provideRouter(routes),
+      provideHttpClient()
     ]
 })
   .catch(err => console.error(err));
