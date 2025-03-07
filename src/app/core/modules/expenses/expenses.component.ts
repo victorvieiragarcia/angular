@@ -5,6 +5,8 @@ import { ExpensesService } from 'src/app/services/expenses-http.service';
 import { EXPENSE, IExpense, ITotals } from './expense';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ButtonActionsBtnComponent } from 'src/app/shared/button-actions-btn/button-actions-btn.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-expenses',
@@ -13,6 +15,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     TableAccountsPayableComponent,
     TableAccountsReceivableComponent,
+    ButtonActionsBtnComponent,
   ],
   providers: [ExpensesService],
   templateUrl: './expenses.component.html',
@@ -23,7 +26,10 @@ export class ExpensesComponent implements OnInit {
   expense: IExpense = EXPENSE;
   totals: ITotals = { totalPayable: 0, totalReceivable: 0, total: 0 };
 
-  constructor(private expensesService: ExpensesService) {}
+  constructor(
+    private expensesService: ExpensesService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.convertNewDateForInput();
@@ -60,5 +66,9 @@ export class ExpensesComponent implements OnInit {
     let year = new Date().getFullYear();
     let monthStr = month < 9 ? '0' + month : month;
     this.dateExpenses = year + '-' + monthStr;
+  }
+
+  redirectRegister() {
+    this.router.navigate(['expenses/register']);
   }
 }
