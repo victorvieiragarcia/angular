@@ -2,7 +2,7 @@ import { Component, OnInit, signal } from '@angular/core';
 import { TableAccountsPayableComponent } from './components/table-accounts-payable/table-accounts-payable.component';
 import { TableAccountsReceivableComponent } from './components/table-accounts-receivable/table-accounts-receivable.component';
 import { ExpensesService } from 'src/app/services/expenses-http.service';
-import { EXPENSE, IExpense, ITotals } from './expense';
+import { EXPENSE, IExpense, ITotals, TOTALS } from './expense';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ButtonActionsBtnComponent } from 'src/app/shared/button-actions-btn/button-actions-btn.component';
@@ -24,7 +24,7 @@ import { Router } from '@angular/router';
 export class ExpensesComponent implements OnInit {
   dateExpenses: string = '';
   expense: IExpense = EXPENSE;
-  totals: ITotals = { totalPayable: 0, totalReceivable: 0, total: 0 };
+  totals: ITotals = TOTALS;
 
   constructor(
     private expensesService: ExpensesService,

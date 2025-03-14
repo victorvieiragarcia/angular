@@ -1,2 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/material-icons/iconfont/material-icons.css';
+@import "../node_modules/material-icons/iconfont/material-icons.css";
+
+.label {
+  &-sm {
+    font-size: 12px;
+  }
+
+  &-required {
+    
+  }
+}
+
+.label-required::after {
+  content: "*";
+  color: red;
+}
+
+.pading-card-chart {
+  padding: 20px;
+}
+
+

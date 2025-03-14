@@ -1,7 +1,6 @@
 export interface IAccountPayable {
-  id: number;
+  id?: number;
   name: string;
   value: number;
-  date: string;
-  status: boolean;
+  date?: string;
 }
