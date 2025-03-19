@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card table-accounts-payable">
     <div class="card-header">
         <b>Contas a pagar</b>
     </div>
@@ -14,6 +14,7 @@
                 </tr>
             </thead>
 
+            @if (accountPayable.length > 0) {
             <tbody>
                 @for (item of accountPayable; track $index) {
                 <tr>
@@ -25,6 +26,14 @@
                 </tr>
                 }
             </tbody>
+            } @else {
+            <tfoot>
+                <tr>
+                    <th colspan="5">Sem contas a pagar</th>
+                </tr>
+            </tfoot>
+            }
+
         </table>
     </div>
 </div>
