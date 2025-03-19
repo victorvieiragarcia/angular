@@ -24,6 +24,7 @@ export class ChartCircleComponent implements OnInit{
     };
 
     this.options = {
+      maintainAspectRatio: false,
       plugins: {
         legend: {
           labels: {

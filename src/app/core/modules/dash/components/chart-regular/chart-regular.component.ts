@@ -41,6 +41,7 @@ export class ChartRegularComponent implements OnInit {
     };
 
     this.basicOptions = {
+      maintainAspectRatio: false,
       indexAxis: this.parametersChart.indexAxis,
       plugins: {
         title: {

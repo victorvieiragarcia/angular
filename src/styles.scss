@@ -1,13 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/material-icons/iconfont/material-icons.css";
 
+.body {
+  background: #e7eef1;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 420px;
+}
+
 .label {
   &-sm {
     font-size: 12px;
   }
 
   &-required {
-    
   }
 }
 
@@ -19,5 +26,3 @@
 .pading-card-chart {
   padding: 20px;
 }
-
-
