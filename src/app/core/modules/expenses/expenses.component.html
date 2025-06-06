@@ -6,65 +6,72 @@
     </ol>
 </nav>
 
-<div class="col-lg-6 col-md-12 col-sm-12">
-    <div class="card">
-        <div class="card-header">
-            <b>Buscar despesas</b>
-        </div>
-        <div class="card-body">
-            <label for="date" class="form-label"><b>Data despesas</b></label>
-            <div class="row g-3">
-                <div class="col-auto">
-                    <input class="form-control" [(ngModel)]="dateExpenses" type="month" id="date">
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary" (click)="getExpensesDate()">Buscar despesas</button>
-                </div>
+<div class="row g-3">
+    <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <b>Buscar despesas</b>
             </div>
+            <div class="card-body">
+                <label for="date" class="form-label"><b>Data despesas</b></label>
+                <div class="row g-3">
+                    <div class="col-auto">
+                        <input class="form-control" [(ngModel)]="dateExpenses" type="month" id="date">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary" (click)="getExpensesDate()">Buscar
+                            despesas</button>
+                    </div>
+                </div>
 
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2 col-md-4 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <b>Total a pagar</b>
+            </div>
+            <div class="card-body">
+                <b>{{totals.totalPayable| currency: 'BRL'}}</b>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2 col-md-4 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <b>Total a receber</b>
+            </div>
+            <div class="card-body">
+                <b>{{totals.totalReceivable | currency: 'BRL'}}</b>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2 col-md-4 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <b>Total</b>
+            </div>
+            <div class="card-body">
+                <b [ngStyle]="{'color': totals.total < 0 ? 'red' : 'green'}">{{totals.total |
+                    currency:
+                    'BRL'}}</b>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="row g-3 mt-3">
-    <div class="col-lg-6 col-md-12 col-sm-12">
+
+<div class="row g-3 mt-1">
+    <div class="col-lg-8 col-md-12 col-sm-12">
         <app-table-accounts-payable [accountPayable]="expense.accountsPayable" />
     </div>
 
-    <div class="col-lg-4 col-md-8 col-sm-6">
+    <div class="col-lg-4 col-md-12 col-sm-12">
         <app-table-accounts-receivable [receivable]="expense.receivable" />
-    </div>
-
-    <div class="col-lg-2 col-md-4 col-sm-6">
-        <div class="card">
-            <div class="card-header">
-                <b>Totais</b>
-            </div>
-            <div class="card-body">
-                <table class="table">
-                    <thead class="table-dark">
-                        <tr>
-                            <th scope="col">Totais</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><b>Pagar: </b><span>{{totals.totalPayable| currency: 'BRL'}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><b>Receber: </b><span>{{totals.totalReceivable | currency: 'BRL'}}</span></td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td><b>Total: </b> <span
-                                    [ngStyle]="{'color': totals.total < 0 ? 'red' : 'green'}">{{totals.total | currency:
-                                    'BRL'}}</span></td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </div>
     </div>
 </div>
 

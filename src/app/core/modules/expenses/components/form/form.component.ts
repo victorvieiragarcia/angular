@@ -12,7 +12,6 @@ import { NgxCurrencyDirective } from 'ngx-currency';
 import { TableAccountsPayableComponent } from '../table-accounts-payable/table-accounts-payable.component';
 import { EXPENSE, IExpense, MASKBRL } from '../../expense';
 import { ExpensesService } from 'src/app/services/expenses-http.service';
-import { map } from 'rxjs';
 
 export const valueMoreZeroValidator: ValidatorFn = (
   control: AbstractControl
@@ -36,6 +35,8 @@ export class FormComponent {
 
   expense: IExpense = EXPENSE;
   maskBrl = MASKBRL;
+  isValidAdd: boolean = true;
+  active = signal(false);
 
   expensesform = this.formBuilder.group({
     my: ['', Validators.required],
@@ -49,12 +50,23 @@ export class FormComponent {
   constructor(private expensesService: ExpensesService) {}
 
   addAccoutPayable() {
+    this.isValidAdd = true;
+    if (this.expensesform.controls['accountsPayable'].invalid) {
+      this.isValidAdd = false;
+      return;
+    }
+
     this.expense.accountsPayable.push(
       this.expensesform.getRawValue().accountsPayable
     );
   }
 
   save() {
+    if (this.isFieldTouchedAndInvalid('my')) {
+      this.toggle();
+      return;
+    } 
+
     this.expense.my = this.expensesform.getRawValue().my as '';
 
     this.expensesService.getDate(this.expense.my).subscribe((res) => {
@@ -71,5 +83,13 @@ export class FormComponent {
         );
       }
     });
+  }
+
+  isFieldTouchedAndInvalid(field: string) {
+    return this.expensesform.get(field)?.valid;
+  }
+
+  toggle() {
+    this.active.update((value) => !value);
   }
 }

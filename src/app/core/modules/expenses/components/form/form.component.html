@@ -33,13 +33,20 @@
                         <label for="name" class="form-label label-sm"><b class="label-required">Nome </b></label>
                         <div class="col-auto">
                             <input class="form-control" formControlName="name" type="text" id="name">
+                            @if (!isValidAdd) {
+                            <span class="invalid-feedback-form" id="nameFeedback">Nome obrigatório</span>
+                            }
                         </div>
+
                     </div>
                     <div class="col-md-2">
                         <label for="value" class="form-label label-sm"><b class="label-required">Valor </b></label>
                         <div class="col-auto">
                             <input class="form-control" inputmode="decimal" [currencyMask]="maskBrl"
                                 formControlName="value" type="text" id="value">
+                            @if (!isValidAdd) {
+                            <span class="invalid-feedback-form" id="valueFeedback">Valor obrigatório</span>
+                            }
                         </div>
                     </div>
 
@@ -50,9 +57,9 @@
                                 <input class="form-control" formControlName="date" type="date" id="datePayable">
                             </div>
                             <div class="d-grid col-md-6 col-sm-6 mx-auto">
-                                <button (click)="addAccoutPayable()" type="button" class="btn btn-primary btn-sm"
-                                    [disabled]="expensesform.controls['accountsPayable'].invalid">
-                                    <b>+</b>
+                                <button (click)="addAccoutPayable()" id="addAccoutPayable" type="button"
+                                    class="btn btn-primary btn-sm">
+                                    <b> Add +</b>
                                 </button>
                             </div>
                         </div>
@@ -67,8 +74,7 @@
 
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
-            <button (click)="save()" type="button" class="btn btn-primary btn-sm float-right"
-                [disabled]="!expensesform.value.my">
+            <button (click)="save()" type="button" class="btn btn-primary btn-sm float-right">
                 <b>Salvar</b>
             </button>
         </div>
@@ -78,14 +84,15 @@
 </div>
 
 
-
+@if (active()) {
 <div class="toast text-bg-dark align-items-center fade show form-toast" role="alert" aria-live="assertive"
     aria-atomic="true">
     <div class="d-flex">
         <div class="toast-body">
-            Hello, world! This is a toast message.
+            Insira uma data para as despesas.
         </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-            aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"
+            (click)="toggle()"></button>
     </div>
 </div>
+}

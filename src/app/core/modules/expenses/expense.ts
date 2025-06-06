@@ -2,7 +2,7 @@ import { IAccountPayable } from 'src/app/models/accout-payable';
 import { IReceivable } from 'src/app/models/receivable';
 
 export interface IExpense {
-  id?: number;
+  id?: string;
   my: string;
   accountsPayable: IAccountPayable[];
   receivable: IReceivable[];

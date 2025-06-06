@@ -1,5 +1,5 @@
 export interface IReceivable {
-    id: number;
+    id?: number;
     name: string;
     value: number;
   }

@@ -5,7 +5,7 @@ import { ExpensesService } from 'src/app/services/expenses-http.service';
 import { EXPENSE, IExpense, ITotals, TOTALS } from './expense';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ButtonActionsBtnComponent } from 'src/app/shared/button-actions-btn/button-actions-btn.component';
+import { ButtonActionsBtnComponent } from '../../../shared/button-actions-btn/button-actions-btn.component';
 import { Router } from '@angular/router';
 
 @Component({
