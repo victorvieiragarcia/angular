@@ -1,0 +1,39 @@
+<div class="card table-accounts-payable">
+    <div class="card-header">
+        <b>Contas a pagar</b>
+    </div>
+    <div class="card-body">
+        <table class="table" id="table-accounts-payable">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+
+            @if (accountPayable.length > 0) {
+            <tbody>
+                @for (item of accountPayable; track $index) {
+                <tr>
+                    <th scope="row">{{item.id}}</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.value | currency: 'BRL'}}</td>
+                    <td>{{item.date | date:"dd/MM/yyyy"}}</td>
+                    <td></td>
+                </tr>
+                }
+            </tbody>
+            } @else {
+            <tfoot>
+                <tr>
+                    <th colspan="5">Sem contas a pagar</th>
+                </tr>
+            </tfoot>
+            }
+
+        </table>
+    </div>
+</div>

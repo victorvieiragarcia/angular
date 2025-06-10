@@ -1,0 +1,29 @@
+<div class="row g-3">
+    <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="card pading-card-chart">
+            <h5>Empresas cadastradas</h5>
+            <app-chart-regular [parametersChart]="parametersChartEmpresas" />
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="card pading-card-chart">
+            <h5>Vidas cadastradas</h5>
+            <app-chart-regular [parametersChart]="parametersChartVidas" />
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="card pading-card-chart">
+            <h5>Histórico de asos</h5>
+            <app-chart-regular [parametersChart]="parametersChartHistorico" />
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="card pading-card-chart">
+            <h5>Asos por tipo</h5>
+            <app-chart-circle [parametersChart]="parametersChartPizzaAsos" />
+        </div>
+    </div>
+</div>

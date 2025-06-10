@@ -1,0 +1,78 @@
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Despesas</li>
+    </ol>
+</nav>
+
+<div class="row g-3">
+    <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <b>Buscar despesas</b>
+            </div>
+            <div class="card-body">
+                <label for="date" class="form-label"><b>Data despesas</b></label>
+                <div class="row g-3">
+                    <div class="col-auto">
+                        <input class="form-control" [(ngModel)]="dateExpenses" type="month" id="date">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary" (click)="getExpensesDate()">Buscar
+                            despesas</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2 col-md-4 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <b>Total a pagar</b>
+            </div>
+            <div class="card-body">
+                <b>{{totals.totalPayable| currency: 'BRL'}}</b>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2 col-md-4 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <b>Total a receber</b>
+            </div>
+            <div class="card-body">
+                <b>{{totals.totalReceivable | currency: 'BRL'}}</b>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2 col-md-4 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <b>Total</b>
+            </div>
+            <div class="card-body">
+                <b [ngStyle]="{'color': totals.total < 0 ? 'red' : 'green'}">{{totals.total |
+                    currency:
+                    'BRL'}}</b>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row g-3 mt-1">
+    <div class="col-lg-8 col-md-12 col-sm-12">
+        <app-table-accounts-payable [accountPayable]="expense.accountsPayable" />
+    </div>
+
+    <div class="col-lg-4 col-md-12 col-sm-12">
+        <app-table-accounts-receivable [receivable]="expense.receivable" />
+    </div>
+</div>
+
+<app-button-actions-btn (onClickAddEmitter)="redirectRegister()" />

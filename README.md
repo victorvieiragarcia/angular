@@ -35,6 +35,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 v20.11.0
 
-## CPF para busca de dados mockados
+## Start Json server
 
-'388.387.945-29', '015.512.198-75'
+npm run server

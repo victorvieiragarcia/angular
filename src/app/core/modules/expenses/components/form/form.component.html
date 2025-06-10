@@ -1,0 +1,98 @@
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Despesas</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Cadastro despesas</li>
+    </ol>
+</nav>
+
+<div class="col-md-12">
+    <form [formGroup]="expensesform">
+        <div class="card mb-3">
+            <div class="card-header">
+                <b>Buscar despesas</b>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <label for="date" class="form-label label-sm"><b class="label-required">Data despesas </b></label>
+                    <div class="col-auto">
+                        <input class="form-control" formControlName="my" type="month" id="date">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <b>Contas a pagar</b>
+            </div>
+            <div class="card-body">
+                <div class="row g-3" formGroupName="accountsPayable">
+                    <div class="col-md-5">
+                        <label for="name" class="form-label label-sm"><b class="label-required">Nome </b></label>
+                        <div class="col-auto">
+                            <input class="form-control" formControlName="name" type="text" id="name">
+                            @if (!isValidAdd) {
+                            <span class="invalid-feedback-form" id="nameFeedback">Nome obrigatório</span>
+                            }
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <label for="value" class="form-label label-sm"><b class="label-required">Valor </b></label>
+                        <div class="col-auto">
+                            <input class="form-control" inputmode="decimal" [currencyMask]="maskBrl"
+                                formControlName="value" type="text" id="value">
+                            @if (!isValidAdd) {
+                            <span class="invalid-feedback-form" id="valueFeedback">Valor obrigatório</span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <label for="datePayable" class="form-label label-sm"><b>Paga em</b></label>
+                        <div class="row g-3">
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" formControlName="date" type="date" id="datePayable">
+                            </div>
+                            <div class="d-grid col-md-6 col-sm-6 mx-auto">
+                                <button (click)="addAccoutPayable()" id="addAccoutPayable" type="button"
+                                    class="btn btn-primary btn-sm">
+                                    <b> Add +</b>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-sm-12 mt-4">
+                    <app-table-accounts-payable [accountPayable]="expense.accountsPayable" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+            <button (click)="save()" type="button" class="btn btn-primary btn-sm float-right">
+                <b>Salvar</b>
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+
+@if (active()) {
+<div class="toast text-bg-dark align-items-center fade show form-toast" role="alert" aria-live="assertive"
+    aria-atomic="true">
+    <div class="d-flex">
+        <div class="toast-body">
+            Insira uma data para as despesas.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"
+            (click)="toggle()"></button>
+    </div>
+</div>
+}

@@ -1,17 +1,24 @@
 import { enableProdMode, importProvidersFrom } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-
 import { environment } from './environments/environment';
-import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { AppRoutingModule } from './app/app-routing.module';
+import { BrowserModule, bootstrapApplication, provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
+import { provideRouter } from '@angular/router';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import {
+  provideCharts,
+  withDefaultRegisterables,
+  } from 'ng2-charts';
 
 if (environment.production) {
   enableProdMode();
 }
 
 bootstrapApplication(AppComponent, {
-    providers: [importProvidersFrom(BrowserModule, AppRoutingModule)]
-})
-  .catch(err => console.error(err));
+  providers: [
+    importProvidersFrom(BrowserModule),
+    provideRouter(routes),
+    provideHttpClient(withFetch()),
+    provideCharts(withDefaultRegisterables()), provideClientHydration(withEventReplay())
+  ],
+}).catch((err) => console.error(err));
