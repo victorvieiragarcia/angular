@@ -4,7 +4,7 @@ class RegisterForm {
     nameFeedback: () => cy.get('#nameFeedback'),
     valueInput: () => cy.get('#value'),
     valueFeedback: () => cy.get('#valueFeedback'),
-    addAccoutPayableBtn: () => cy.get('#addAccoutPayable')
+    addAccoutPayableBtn: () => cy.get('#addAccoutPayable'),
   };
 
   typeName(text: string) {
@@ -52,7 +52,6 @@ describe('Inputs invalidas', () => {
   it(`Então eu deveria ver "Valor obrigatório"`, () => {
     register.elements.valueFeedback().should('have.text', 'Valor obrigatório');
   });
-
 });
 
 describe('Inputs validas', () => {
@@ -78,11 +77,17 @@ describe('Inputs validas', () => {
   });
 
   it(`Então eu deveria ver "Test cypress e R$1.00"`, () => {
-    cy.get('#table-accounts-payable').find('tr').eq(1).find('td').eq(0).should('have.text', 'Test cypress');
-    cy.get('#table-accounts-payable').find('tr').eq(1).find('td').eq(1).should('have.text', 'R$1.00');
+    cy.get('#table-accounts-payable')
+      .find('tr')
+      .eq(1)
+      .find('td')
+      .eq(0)
+      .should('have.text', 'Test cypress');
+    cy.get('#table-accounts-payable')
+      .find('tr')
+      .eq(1)
+      .find('td')
+      .eq(1)
+      .should('have.text', 'R$1.00');
   });
-
-  
-
-  
 });
