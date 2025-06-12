@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { AppCoreComponent } from './app-core.component';
-import { ExpensesComponent } from './modules/expenses/expenses.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dash', pathMatch: 'full' },

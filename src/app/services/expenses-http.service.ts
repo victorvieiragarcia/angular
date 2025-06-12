@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { EXPENSE, IExpense } from '../core/modules/expenses/expense';
 import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +9,7 @@ const LOCAL = 'http://localhost:3000';
   providedIn: 'root',
 })
 export class ExpensesService {
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
 
   getDate(date: string): Observable<IExpense> {
     return this.http
