@@ -19,7 +19,7 @@ jobs:
           node-version: 22.14.0
 
       - name: Install dependencies
-        run: npm Install
+        run: npm install
 
       - name: Run Cypress Testes
         run: npm run cypress:headles
