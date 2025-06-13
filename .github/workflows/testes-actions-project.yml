@@ -1,0 +1,31 @@
+name: Testes unitarios e e2e
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'teste-angular/**.js'
+      - 'teste-angular/**.json'
+      - 'teste-angular/**.yml'
+
+jobs:
+  teste-angular-actions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.14.0
+
+      - name: Install dependencies
+        run: npm Install
+        working-directory: ./teste-angular
+
+      - name: Run Cypress Testes
+        run: npm run cypress:headles
+        working-directory: ./teste-angular

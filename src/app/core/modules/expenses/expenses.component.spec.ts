@@ -1,40 +1,15 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-// import { ExpensesComponent } from './expenses.component';
-
-// describe('ExpensesComponent', () => {
-//   let component: ExpensesComponent;
-//   let fixture: ComponentFixture<ExpensesComponent>;
-
-//   beforeEach(async () => {
-//     await TestBed.configureTestingModule({
-//       imports: [ExpensesComponent]
-//     })
-//     .compileComponents();
-
-//     fixture = TestBed.createComponent(ExpensesComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
-
-import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed,  } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { async, of } from 'rxjs';
-
 import { ExpensesComponent } from './expenses.component';
-import { ExpensesService } from 'src/app/services/expenses-http.service';
-import { IExpense, EXPENSE, ITotals, TOTALS } from './expense';
+import { IExpense, EXPENSE, TOTALS } from './expense';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TableAccountsPayableComponent } from './components/table-accounts-payable/table-accounts-payable.component';
 import { TableAccountsReceivableComponent } from './components/table-accounts-receivable/table-accounts-receivable.component';
-import { ButtonActionsBtnComponent } from '../../../shared/button-actions-btn/button-actions-btn.component';
 import { provideHttpClient } from '@angular/common/http';
+import { ExpensesService } from '@services/expenses-http.service';
+import { ButtonActionsBtnComponent } from '@shared/button-actions-btn/button-actions-btn.component';
+import { of } from 'rxjs';
 
 describe('ExpensesComponent', () => {
   let component: ExpensesComponent;
@@ -99,7 +74,7 @@ describe('ExpensesComponent', () => {
       mockExpensesService.getDate.and.returnValue(of(fakeExpense));
 
       component.dateExpenses = '2025-04';
-      const result = await component.getExpensesDate();
+      component.getExpensesDate();
 
       setTimeout(() => {
         expect(component.expense).toEqual(fakeExpense);

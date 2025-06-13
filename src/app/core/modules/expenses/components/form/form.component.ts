@@ -11,7 +11,7 @@ import {
 import { NgxCurrencyDirective } from 'ngx-currency';
 import { TableAccountsPayableComponent } from '../table-accounts-payable/table-accounts-payable.component';
 import { EXPENSE, IExpense, MASKBRL } from '../../expense';
-import { ExpensesService } from 'src/app/services/expenses-http.service';
+import { ExpensesService } from '@services/expenses-http.service';
 
 export const valueMoreZeroValidator: ValidatorFn = (
   control: AbstractControl
@@ -31,11 +31,12 @@ export const valueMoreZeroValidator: ValidatorFn = (
   styleUrl: './form.component.scss',
 })
 export class FormComponent {
+  private expensesService = inject(ExpensesService);
   private formBuilder = inject(FormBuilder);
 
   expense: IExpense = EXPENSE;
   maskBrl = MASKBRL;
-  isValidAdd: boolean = true;
+  isValidAdd = true;
   active = signal(false);
 
   expensesform = this.formBuilder.group({
@@ -46,8 +47,6 @@ export class FormComponent {
       date: [''],
     }),
   });
-
-  constructor(private expensesService: ExpensesService) {}
 
   addAccoutPayable() {
     this.isValidAdd = true;
@@ -65,7 +64,7 @@ export class FormComponent {
     if (this.isFieldTouchedAndInvalid('my')) {
       this.toggle();
       return;
-    } 
+    }
 
     this.expense.my = this.expensesform.getRawValue().my as '';
 

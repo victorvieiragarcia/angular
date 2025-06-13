@@ -1,12 +1,12 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { TableAccountsPayableComponent } from './components/table-accounts-payable/table-accounts-payable.component';
 import { TableAccountsReceivableComponent } from './components/table-accounts-receivable/table-accounts-receivable.component';
-import { ExpensesService } from 'src/app/services/expenses-http.service';
 import { EXPENSE, IExpense, ITotals, TOTALS } from './expense';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ButtonActionsBtnComponent } from '../../../shared/button-actions-btn/button-actions-btn.component';
 import { Router } from '@angular/router';
+import { ExpensesService } from '@services/expenses-http.service';
+import { ButtonActionsBtnComponent } from '@shared/button-actions-btn/button-actions-btn.component';
 
 @Component({
   selector: 'app-expenses',
@@ -22,14 +22,11 @@ import { Router } from '@angular/router';
   styleUrl: './expenses.component.scss',
 })
 export class ExpensesComponent implements OnInit {
-  dateExpenses: string = '';
+  dateExpenses = '';
   expense: IExpense = EXPENSE;
   totals: ITotals = TOTALS;
-
-  constructor(
-    private expensesService: ExpensesService,
-    private router: Router
-  ) {}
+  private expensesService = inject(ExpensesService);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.convertNewDateForInput();
@@ -62,9 +59,9 @@ export class ExpensesComponent implements OnInit {
   }
 
   private convertNewDateForInput() {
-    let month = new Date().getMonth() + 1;
-    let year = new Date().getFullYear();
-    let monthStr = month < 9 ? '0' + month : month;
+    const month = new Date().getMonth() + 1;
+    const year = new Date().getFullYear();
+    const monthStr = month < 9 ? '0' + month : month;
     this.dateExpenses = year + '-' + monthStr;
   }
 

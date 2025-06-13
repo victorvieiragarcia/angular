@@ -1,4 +1,5 @@
-import { booleanAttribute, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+/* eslint-disable @angular-eslint/no-output-on-prefix */
+import { booleanAttribute, Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgIf, NgClass } from '@angular/common';
 
 @Component({
@@ -7,18 +8,12 @@ import { NgIf, NgClass } from '@angular/common';
     styleUrls: ['./generic-button.component.scss'],
     imports: [NgIf, NgClass]
 })
-export class GenericButtonComponent implements OnInit {
+export class GenericButtonComponent {
 
-  @Input() textBtn: string = '';
-  @Input({transform: booleanAttribute}) inline: boolean = true;
-  @Input() disabled: boolean = false;
-  @Input() isLoading: boolean = false;
+  @Input() textBtn: string;
+  @Input({transform: booleanAttribute}) inline = true;
+  @Input() disabled = false;
+  @Input() isLoading = false;
 
   @Output() onClickEmitter = new EventEmitter();
-  
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

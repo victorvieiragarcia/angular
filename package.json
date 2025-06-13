@@ -9,7 +9,12 @@
     "test": "ng test",
     "server": "npx json-server db.json",
     "e2e": "cypress open",
-    "serve:ssr:teste-angular": "node dist/teste-angular/server/server.mjs"
+    "serve:ssr:teste-angular": "node dist/teste-angular/server/server.mjs",
+    "lint": "ng lint --fix",
+    "prepare": "husky"
+  },
+  "lint-staged":{
+    "*.ts": "eslint --fix"
   },
   "private": true,
   "dependencies": {
@@ -41,13 +46,18 @@
     "@types/express": "^4.17.17",
     "@types/jasmine": "~4.0.0",
     "@types/node": "^18.18.0",
+    "angular-eslint": "20.0.0",
     "cypress": "^14.4.1",
+    "eslint": "^9.28.0",
+    "husky": "^9.1.7",
     "jasmine-core": "~4.1.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "typescript": "^5.7.3"
+    "lint-staged": "^16.1.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "8.33.1"
   }
 }

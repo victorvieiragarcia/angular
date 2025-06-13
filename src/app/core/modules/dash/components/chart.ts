@@ -1,14 +1,14 @@
 export interface IParametersChart {
-  labels: any;
-  data: any[];
+  labels:  string[];
+  data: number[];
   type: ETypes;
   indexAxis: 'y' | 'x';
   color: EColors;
 }
 
 export interface IParametersChartPizza {
-  labels: any;
-  data: any[];
+  labels: string[];
+  data: number[];
   type: ETypes;
 }
 

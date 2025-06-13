@@ -17,14 +17,14 @@ import { BaseChartDirective } from 'ng2-charts';
 export class ChartRegularComponent implements OnInit {
   @Input() parametersChart: IParametersChart = REGULAR_DEFAULT;
 
-  basicOptions: any;
-  basicData: any;
+  basicOptions = {};
+  basicData = {};
   ngOnInit(): void {
     const documentStyle = getComputedStyle(document.documentElement);
     const textColorSecondary =
       documentStyle.getPropertyValue(TEXTCOLORSECONDARY);
     const surfaceBorder = documentStyle.getPropertyValue(SURFACEBORDER);
-    let color = ColorsRBG[this.parametersChart.color];
+    const color = ColorsRBG[this.parametersChart.color];
 
     this.basicData = {
       labels: this.parametersChart.labels,
