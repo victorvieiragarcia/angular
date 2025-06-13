@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'teste-angular/**.js'
-      - 'teste-angular/**.json'
-      - 'teste-angular/**.yml'
 
 jobs:
   teste-angular-actions:
@@ -24,8 +20,6 @@ jobs:
 
       - name: Install dependencies
         run: npm Install
-        working-directory: ./teste-angular
 
       - name: Run Cypress Testes
         run: npm run cypress:headles
-        working-directory: ./teste-angular
