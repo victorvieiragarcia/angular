@@ -27,4 +27,4 @@ jobs:
           npm start & npx wait-on http://localhost:4200
 
       - name: Run Cypress Testes
-        run: npm run cypress:headles
+        run: npx cypress run --browser electron
