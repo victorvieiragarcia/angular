@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "server": "npx json-server db.json",
-    "e2e": "cypress open",
+    "cypress:web": "npx cypress open",
+    "cypress:headless": "npx cypress run --browser electron",
     "serve:ssr:teste-angular": "node dist/teste-angular/server/server.mjs",
     "lint": "ng lint --fix",
     "prepare": "husky"
