@@ -10,6 +10,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(BrowserModule),
     provideRouter(routes),
     provideHttpClient(withFetch()),
-    provideCharts(withDefaultRegisterables()), provideClientHydration(withEventReplay())
+    provideCharts(withDefaultRegisterables()),
+    provideClientHydration(withEventReplay())
   ]
 };

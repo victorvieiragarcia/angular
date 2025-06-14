@@ -1,3 +1,4 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <div id="container-floating">
     <div class="nd4 nds">
         <p class="letter">
@@ -15,7 +16,8 @@
         </p>
     </div>
 
-    <div class="nd1 nds" (onClick)="onClickAddEmitter.emit()">
+    <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events-->
+    <div class="nd1 nds" (click)="onClickAddEmitter.emit()">
         <p class="letter">
             <span class="material-icons-outlined">
                 add

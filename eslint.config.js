@@ -30,6 +30,9 @@ module.exports = tseslint.config(
           style: "kebab-case",
         },
       ],
+      '@angular-eslint/template/click-events-have-key-events': 'off',
+      '@angular-eslint/template/interactive-supports-focus': 'off',
+      '@angular-eslint/no-output-on-prefix': 'off'
     },
   },
   {

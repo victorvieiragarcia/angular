@@ -2,12 +2,12 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 
 export const serverRoutes: ServerRoute[] = [
   {
-    path: '**',
+    path: '',
     renderMode: RenderMode.Prerender,
   },
   {
     path: 'dash',
-    renderMode: RenderMode.Prerender,
+    renderMode: RenderMode.Client,
   },
   {
     path: 'expenses',
@@ -16,5 +16,9 @@ export const serverRoutes: ServerRoute[] = [
   {
     path: 'expenses/register',
     renderMode: RenderMode.Server,
+  },
+   {
+    path: '**',
+    renderMode: RenderMode.Client,
   },
 ];
